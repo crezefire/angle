@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="_excluded_files">
@@ -6,9 +6,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="angle.gyp"/>
-    <None Include="copy_compiler_dll.bat">
-      <Filter>_excluded_files</Filter>
-    </None>
+    <None Include="angle.gyp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="copy_compiler_dll.bat" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="$(OutDir)obj">
@@ -24,12 +24,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="angle.gyp"/>
-    <None Include="$(OutDir)obj\global_intermediate\angle\commit_id.bat">
-      <Filter>$(OutDir)obj\global_intermediate\angle\_excluded_files</Filter>
-    </None>
+    <None Include="angle.gyp" />
     <None Include="..\.git\index">
       <Filter>..\.git\_excluded_files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="$(OutDir)obj\global_intermediate\angle\commit_id.bat" />
   </ItemGroup>
 </Project>
