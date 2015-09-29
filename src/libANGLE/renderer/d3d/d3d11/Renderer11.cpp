@@ -565,6 +565,18 @@ egl::Error Renderer11::initialize()
                               D3D11_INIT_OTHER_ERROR,
                               "Could not create DXGI factory.");
         }
+
+		IDXGIDevice * pDXGIDevice;
+		mDevice->QueryInterface(__uuidof(IDXGIDevice), (void **)&pDXGIDevice);
+
+		IDXGIAdapter * pDXGIAdapter;
+		pDXGIDevice->GetParent(__uuidof(IDXGIAdapter), (void **)&pDXGIAdapter);
+
+		IDXGIFactory * pIDXGIFactory;
+		pDXGIAdapter->GetParent(__uuidof(IDXGIFactory), (void **)&pIDXGIFactory);
+
+		HWND hwnd = WindowFromDC(mDisplay->getNativeDisplayId());
+		pIDXGIFactory->MakeWindowAssociation(hwnd, DXGI_MWA_NO_ALT_ENTER);
     }
 
     // Disable some spurious D3D11 debug warnings to prevent them from flooding the output log
