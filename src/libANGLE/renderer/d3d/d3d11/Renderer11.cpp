@@ -481,16 +481,6 @@ egl::Error Renderer11::initialize()
 
     {
 
-		ID3D10Multithread* pMultithread;
-		HRESULT hr = ((mDevice)->QueryInterface(IID_PPV_ARGS(&pMultithread)));
-
-		if (SUCCEEDED(hr))
-		{
-			pMultithread->SetMultithreadProtected(TRUE);
-		}
-
-		SafeRelease(pMultithread);
-
         TRACE_EVENT0("gpu.angle", "Renderer11::initialize (ComQueries)");
         // Cast the DeviceContext to a DeviceContext1.
         // This could fail on Windows 7 without the Platform Update.
@@ -891,6 +881,7 @@ gl::Error Renderer11::finish()
 
         // Keep polling, but allow other threads to do something useful first
         //ScheduleYield();
+        Sleep(0);
 
         if (testDeviceLost())
         {
