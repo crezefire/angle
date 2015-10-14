@@ -480,17 +480,6 @@ egl::Error Renderer11::initialize()
 #endif
 
     {
-
-		ID3D10Multithread* pMultithread;
-		HRESULT hr = ((mDevice)->QueryInterface(IID_PPV_ARGS(&pMultithread)));
-
-		if (SUCCEEDED(hr))
-		{
-			pMultithread->SetMultithreadProtected(TRUE);
-		}
-
-		SafeRelease(pMultithread);
-
         TRACE_EVENT0("gpu.angle", "Renderer11::initialize (ComQueries)");
         // Cast the DeviceContext to a DeviceContext1.
         // This could fail on Windows 7 without the Platform Update.
